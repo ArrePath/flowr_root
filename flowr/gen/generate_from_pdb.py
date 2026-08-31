@@ -17,6 +17,7 @@ import flowr.util.rdkit as smolRD
 from flowr.data.dataset import GeometricDataset
 from flowr.gen.generate import generate_ligands_per_target
 from flowr.gen.mol_filter import ADMEFilter, MolFilterPipeline, PropertyFilter
+from flowr.gen.reporting import rate
 from flowr.scriptutil import (
     load_model,
 )
@@ -184,13 +185,13 @@ def evaluate(args):
                         filter_uniqueness=False,
                         sanitize=True,
                     )
-                    print(f"Validity rate: {round(len(gen_ligs) / num_sampled, 2)}")
+                    print(f"Validity rate: {rate(len(gen_ligs), num_sampled)}")
                     gen_ligs = smolRD.sanitize_list(
                         gen_ligs,
                         filter_uniqueness=True,
                         sanitize=False,
                     )
-                    print(f"Uniqueness rate: {round(len(gen_ligs) / num_sampled, 2)}")
+                    print(f"Uniqueness rate: {rate(len(gen_ligs), num_sampled)}")
             # Filter by conditional substructure
             if args.filter_cond_substructure:
                 assert (
@@ -206,7 +207,7 @@ def evaluate(args):
                     canonicalize_conformer=args.canonicalize_conformer,
                 )
                 print(
-                    f"Substructure match rate: {round(len(gen_ligs) / num_sampled, 2)}"
+                    f"Substructure match rate: {rate(len(gen_ligs), num_sampled)}"
                 )
 
             # Add to global ligand list
@@ -225,7 +226,7 @@ def evaluate(args):
                     all_gen_ligs = util.filter_diverse_ligands_bulk(
                         all_gen_ligs, threshold=args.diversity_threshold
                     )
-                print(f"Diversity rate: {round(len(all_gen_ligs) / n_ligands, 2)}")
+                print(f"Diversity rate: {rate(len(all_gen_ligs), n_ligands)}")
 
             # Filter by molecular properties / ADME models
             if mol_filter_pipeline.active:
