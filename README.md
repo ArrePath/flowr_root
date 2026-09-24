@@ -1,6 +1,7 @@
 # Flowr.root -- A flow matching based foundation model for joint multi-purpose structure-aware 3D ligand generation and affinity prediction
 
-[![arXiv](https://img.shields.io/badge/arXiv-2504.10564-b31b1b.svg)](https://arxiv.org/abs/2510.02578)
+[![Nature Communications](https://img.shields.io/badge/Nature%20Communications-2026-006699.svg)](https://www.nature.com/articles/s41467-026-74130-9)
+[![arXiv](https://img.shields.io/badge/arXiv-2510.02578-b31b1b.svg)](https://arxiv.org/abs/2510.02578)
 
 ![FLOWR.root Overview](flowr_root.png)
 
@@ -659,7 +660,22 @@ source-available license (see [`flowr_vis/LICENSE`](flowr_vis/LICENSE)).
 
 ## Citation
 
-If you use FLOWR.root in your research, please cite it as follows:
+If you use FLOWR.root in your research, please cite the [Nature Communications paper](https://www.nature.com/articles/s41467-026-74130-9):
+
+```bibtex
+@article{cremer2026flowrroot,
+      title={FLOWR.root -- A flow matching-based foundation model for joint multi-purpose structure-aware 3D ligand generation and affinity prediction},
+      author={Julian Cremer and Tuan Le and Mohammad M. Ghahremanpour and Emilia Sługocka and Filipe Menezes and Djork-Arné Clevert},
+      journal={Nature Communications},
+      volume={17},
+      pages={5883},
+      year={2026},
+      doi={10.1038/s41467-026-74130-9},
+      url={https://www.nature.com/articles/s41467-026-74130-9},
+}
+```
+
+The preprint is available on [arXiv](https://arxiv.org/abs/2510.02578):
 
 ```bibtex
 @misc{cremer2025flowrrootflowmatchingbased,
